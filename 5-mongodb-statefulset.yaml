@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb
-  namespace: mongodb-operator
+  namespace: mongodb
 spec:
   serviceName: mongodb-headless
   podManagementPolicy: OrderedReady
@@ -29,7 +29,7 @@ spec:
                 matchLabels:
                   app.kubernetes.io/name: mongodb
               namespaces:
-              - mongodb-operator
+              - mongodb
               topologyKey: kubernetes.io/hostname
             weight: 1
       securityContext:
